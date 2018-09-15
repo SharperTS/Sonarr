@@ -208,7 +208,7 @@ PackageOsx()
 
 PackageOsxApp()
 {
-    ProgressStart 'Creating MacOS App Package'
+    ProgressStart 'Creating macOS App Package'
 
     rm -rf $outputFolderMacOSApp
     mkdir $outputFolderMacOSApp
@@ -216,7 +216,7 @@ PackageOsxApp()
     cp -r ./osx/Sonarr.app $outputFolderMacOSApp
     cp -r $outputFolderMacOS $outputFolderMacOSApp/Sonarr.app/Contents/MacOS
 
-    ProgressEnd 'Creating MacOS App Package'
+    ProgressEnd 'Creating macOS App Package'
 }
 
 PackageTests()
@@ -280,7 +280,7 @@ PublishArtifacts()
     echo "##teamcity[publishArtifacts '$outputFolder/** => Sonarr.$BRANCH.$BUILD_NUMBER.windows.zip!Sonarr']"
     echo "##teamcity[publishArtifacts '$outputFolderLinux/** => Sonarr.$BRANCH.$BUILD_NUMBER.linux.tar.gz!Sonarr']"
     echo "##teamcity[publishArtifacts '$outputFolderMacOS/** => Sonarr.$BRANCH.$BUILD_NUMBER.macos.tar.gz!Sonarr']"
-    echo "##teamcity[publishArtifacts '$outputFolderMacOSApp/** => Sonarr.$BRANCH.$BUILD_NUMBER.macos.zip!Sonarr']"
+    echo "##teamcity[publishArtifacts '$outputFolderMacOSApp/** => Sonarr.$BRANCH.$BUILD_NUMBER.macos.zip']"
     
     # Debian Package
     echo "##teamcity[publishArtifacts 'distribution/** => distribution.zip']"
