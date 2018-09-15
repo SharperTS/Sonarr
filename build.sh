@@ -187,7 +187,7 @@ PackageMono()
     ProgressEnd 'Creating Mono Package'
 }
 
-PackageOsx()
+PackageMacOS()
 {
     ProgressStart 'Creating MacOS Package'
 
@@ -201,19 +201,19 @@ PackageOsx()
     cp $sourceFolder/Libraries/MediaInfo/*.dylib $outputFolderMacOS
 
     echo "Adding Startup script"
-    cp  ./osx/Sonarr $outputFolderMacOS
+    cp ./macOS/Sonarr $outputFolderMacOS
 
     ProgressEnd 'Creating MacOS Package'
 }
 
-PackageOsxApp()
+PackageMacOSApp()
 {
     ProgressStart 'Creating macOS App Package'
 
     rm -rf $outputFolderMacOSApp
     mkdir $outputFolderMacOSApp
 
-    cp -r ./osx/Sonarr.app $outputFolderMacOSApp
+    cp -r ./macOS/Sonarr.app $outputFolderMacOSApp
     cp -r $outputFolderMacOS $outputFolderMacOSApp/Sonarr.app/Contents/MacOS
 
     ProgressEnd 'Creating macOS App Package'
@@ -303,8 +303,8 @@ esac
 Build
 RunGulp
 PackageMono
-PackageOsx
-PackageOsxApp
+PackageMacOS
+PackageMacOSApp
 PackageTests
 CleanupWindowsPackage
 PublishArtifacts
